@@ -2,18 +2,22 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Bodoni Moda", "Bodoni 72", serif;
+  --font-sans: "Inter", sans-serif;
   --font-serif: "Bodoni Moda", "Bodoni 72", serif;
+  --font-instrument: "Instrument Serif", serif;
 }
 
-*,
-html,
-body,
-input,
-textarea,
-select,
-button {
-  font-family: "Bodoni Moda", "Bodoni 72", serif !important;
+/* On mobile (default), we keep everything minimal sans-serif.
+   On desktop (sm+), we let custom serif classes take effect where specified. */
+body {
+  font-family: var(--font-sans);
+}
+
+@media (max-width: 639px) {
+  /* Force sans-serif on all text elements on mobile for an ultra-minimal look */
+  h1, h2, h3, h4, p, span, input, button, select, textarea {
+    font-family: "Inter", sans-serif !important;
+  }
 }
 
 :root {
