@@ -24,7 +24,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     // Insert data into early_access table
     const result = await pool.query(
-      `INSERT INTO early_access (name, persona, email, feedback) VALUES ($1, $2, $3, $4) RETURNING id`,
+      `INSERT INTO early_access (name, persona, email, transparency_feedback) VALUES ($1, $2, $3, $4) RETURNING id`,
       [name, persona, email, feedback]
     );
 
