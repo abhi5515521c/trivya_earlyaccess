@@ -181,7 +181,7 @@ function DoomSphere() {
       const basis = aspect >= 1.3 ? w : Math.min(w, h);
       let radius = basis * 0.80;
       radius = Math.min(radius, h * 2.5);
-      radius = _ds_clamp(Math.round(radius), 600, Infinity);
+      radius = _ds_clamp(Math.round(radius), 250, Infinity);
       const viewerPad = Math.max(8, Math.round(Math.min(w, h) * 0.25));
       root.style.setProperty('--radius', `${radius}px`);
       root.style.setProperty('--viewer-pad', `${viewerPad}px`);
@@ -805,7 +805,7 @@ function App() {
           opacity: 0,
           transition: 'opacity 0.2s ease',
         }}
-        className="font-mono text-[9px] text-white/60 uppercase tracking-widest flex items-center gap-2 select-none"
+        className="hidden md:flex font-mono text-[9px] text-white/60 uppercase tracking-widest items-center gap-2 select-none"
       >
         <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
         <span className="keyword-text">verifyPrice()</span>
