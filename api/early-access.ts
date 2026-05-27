@@ -62,7 +62,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     if (error.code === '23505') {
       return res.status(409).json({ success: false, message: 'Email already registered' });
     }
-    return res.status(500).json({ success: false, message: 'Internal server error' });
+    return res.status(500).json({ success: false, message: 'Internal server error: ' + (error.message || String(error)) });
   } finally {
     await pool.end();
   }
