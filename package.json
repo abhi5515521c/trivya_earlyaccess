@@ -11,7 +11,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
     "@tailwindcss/vite": "^4.3.0",
+    "@vercel/node": "^5.8.5",
     "axios": "^1.16.1",
     "concurrently": "^9.2.1",
     "cors": "^2.8.6",
