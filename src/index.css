@@ -6,7 +6,13 @@
   --font-serif: "Bodoni Moda", "Bodoni 72", serif;
 }
 
-*, html, body, input, textarea, select, button {
+*,
+html,
+body,
+input,
+textarea,
+select,
+button {
   font-family: "Bodoni Moda", "Bodoni 72", serif !important;
 }
 
@@ -21,7 +27,7 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px #18181b inset !important;
-  -webkit-text-fill-color: #000000 !important;
+  -webkit-text-fill-color: #ffffff !important;
   transition: background-color 5000s ease-in-out 0s;
 }
 
