@@ -536,7 +536,7 @@ function Hero({ heading, onGetEarlyAccess }: HeroProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           style={{ fontFamily: "'Instrument Serif', serif" }}
-          className="text-4xl md:text-[64px] font-medium tracking-[-0.01em] leading-[1.1] mb-6 bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text text-transparent max-w-4xl"
+          className="text-4xl sm:text-5xl md:text-[64px] font-medium tracking-[-0.01em] leading-[1.1] mb-6 bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text text-transparent max-w-4xl px-2"
         >
           {heading}
         </motion.h1>
@@ -829,7 +829,7 @@ function App() {
       {/* GLASSMORPHIC MODAL FLOW */}
       <AnimatePresence>
         {modalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
 
             {/* ── Layer 1: DoomSphere (NO filter/backdrop-filter ancestor — preserve-3d requires this) ── */}
             <motion.div
@@ -870,7 +870,7 @@ function App() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
               transition={{ type: "spring", damping: 25, stiffness: 350 }}
-              className="relative w-full max-w-[480px] overflow-hidden rounded-2xl bg-zinc-950/85 border border-zinc-800/60 shadow-[0_0_60px_rgba(168,85,247,0.15)] backdrop-blur-2xl p-7 md:p-9 text-left z-10 flex flex-col gap-6"
+              className="relative w-full max-w-[480px] max-h-[90dvh] overflow-y-auto rounded-2xl bg-zinc-950/85 border border-zinc-800/60 shadow-[0_0_60px_rgba(168,85,247,0.15)] backdrop-blur-2xl p-6 sm:p-8 md:p-10 text-left z-10 flex flex-col gap-6 scrollbar-hide"
             >
               {/* Subtle inner purple accent glow */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-[40px] pointer-events-none" />
