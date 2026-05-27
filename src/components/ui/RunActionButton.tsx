@@ -145,19 +145,29 @@ export function RunActionButton({
     return () => clearInterval(interval);
   }, [status, steps.length, controlledStatus]);
 
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1000);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const isMobile = windowWidth < 450;
+
   const widths = {
-    idle: 220,
-    running: 380,
-    done: 220,
+    idle: isMobile ? 180 : 220,
+    running: isMobile ? 290 : 380,
+    done: isMobile ? 180 : 220,
   };
 
   return (
-    <div className="flex items-center justify-center w-full">
+    <div className="flex items-center justify-center w-full max-w-full overflow-hidden">
       <motion.div
-        initial={{ width: 220 }}
+        initial={{ width: widths.idle }}
         animate={{ width: widths[status] }}
         transition={spring}
-        className={`relative flex h-[64px] items-center justify-between overflow-hidden rounded-full ${
+        className={`relative flex h-[56px] sm:h-[64px] max-w-full items-center justify-between overflow-hidden rounded-full ${
           status === 'running'
             ? 'border-2 border-dashed border-[#D6D6DD] dark:border-white/20'
             : 'border-2 border-transparent'
@@ -173,12 +183,12 @@ export function RunActionButton({
               animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
               exit={{ opacity: 0, scale: 0.8, filter: 'blur(4px)' }}
               transition={spring}
-              className="flex flex-1 items-center justify-center gap-2 rounded-full bg-white px-5 py-3 whitespace-nowrap dark:bg-zinc-800 border border-white/10 hover:border-white/20 shadow-[0_0_15px_rgba(168,85,247,0.2)] hover:shadow-[0_0_20px_rgba(168,85,247,0.35)] transition-shadow duration-300 cursor-pointer"
+              className="flex flex-1 items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-white px-4 sm:px-5 py-2.5 sm:py-3 whitespace-nowrap dark:bg-zinc-800 border border-white/10 hover:border-white/20 shadow-[0_0_15px_rgba(168,85,247,0.2)] hover:shadow-[0_0_20px_rgba(168,85,247,0.35)] transition-shadow duration-300 cursor-pointer"
             >
-              <Zap className="h-5 w-5 text-purple-500 fill-purple-500" />
+              <Zap className="h-4 w-4 sm:h-5 sm:w-5 text-purple-500 fill-purple-500" />
               <AnimatedText
                 text={text}
-                className="text-[16px] font-semibold text-[#26262B] dark:text-zinc-100"
+                className="text-[13px] sm:text-[16px] font-semibold text-[#26262B] dark:text-zinc-100"
               />
             </motion.button>
           )}
@@ -190,11 +200,11 @@ export function RunActionButton({
               animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
               exit={{ opacity: 0, scale: 0.8, filter: 'blur(4px)' }}
               transition={spring}
-              className="flex flex-1 items-center justify-between gap-3 px-4 whitespace-nowrap bg-black/40 backdrop-blur-md h-full rounded-full"
+              className="flex flex-1 items-center justify-between gap-1.5 sm:gap-3 px-3 sm:px-4 whitespace-nowrap bg-black/40 backdrop-blur-md h-full rounded-full"
             >
-              <div className="flex items-center gap-3">
-                <DotmSquare3 size={28} dotSize={3.5} color="#a855f7" className="flex-shrink-0" />
-                <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-3 truncate">
+                <DotmSquare3 size={isMobile ? 22 : 28} dotSize={isMobile ? 2.5 : 3.5} color="#a855f7" className="flex-shrink-0 hidden sm:block" />
+                <div className="flex items-center gap-1.5 sm:gap-2 truncate">
                   <AnimatePresence mode="popLayout">
                     <motion.div
                       key={currentStep}
@@ -205,13 +215,13 @@ export function RunActionButton({
                       className="flex-shrink-0"
                     >
                       {React.createElement(steps[currentStep].icon, {
-                        className: 'w-5 h-5 text-purple-500',
+                        className: 'w-4 h-4 sm:w-5 sm:h-5 text-purple-500',
                       })}
                     </motion.div>
                   </AnimatePresence>
                   <AnimatedText
                     text={steps[currentStep].label}
-                    className="text-[14px] font-medium text-[#28272A] dark:text-zinc-300"
+                    className="text-[11px] sm:text-[14px] font-medium text-[#28272A] dark:text-zinc-300 truncate"
                   />
                 </div>
               </div>
@@ -223,9 +233,9 @@ export function RunActionButton({
                 animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, scale: 0.8, filter: 'blur(4px)' }}
                 transition={{ ...spring, delay: 0.15 }}
-                className="ml-1 rounded-full bg-zinc-800 hover:bg-zinc-700 p-1.5 cursor-pointer border border-white/10"
+                className="ml-1 rounded-full bg-zinc-800 hover:bg-zinc-700 p-1 sm:p-1.5 cursor-pointer border border-white/10 flex-shrink-0"
               >
-                <IoCloseSharp className="h-4 w-4 text-zinc-400" />
+                <IoCloseSharp className="h-3 w-3 sm:h-4 sm:w-4 text-zinc-400" />
               </motion.button>
             </motion.div>
           )}
@@ -239,12 +249,12 @@ export function RunActionButton({
               animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
               exit={{ opacity: 0, scale: 0.8, filter: 'blur(4px)' }}
               transition={spring}
-              className="flex flex-1 items-center justify-center gap-2 rounded-full bg-[#1b4332] border border-[#2d6a4f]/30 px-5 py-3 whitespace-nowrap cursor-pointer shadow-[0_0_15px_rgba(34,197,94,0.15)]"
+              className="flex flex-1 items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-[#1b4332] border border-[#2d6a4f]/30 px-4 sm:px-5 py-2.5 sm:py-3 whitespace-nowrap cursor-pointer shadow-[0_0_15px_rgba(34,197,94,0.15)]"
             >
-              <HiBadgeCheck className="h-6 w-6 text-[#22c55e]" />
+              <HiBadgeCheck className="h-5 w-5 sm:h-6 sm:w-6 text-[#22c55e]" />
               <AnimatedText
                 text="Access Confirmed"
-                className="text-[16px] font-bold text-[#22c55e]"
+                className="text-[13px] sm:text-[16px] font-bold text-[#22c55e]"
               />
             </motion.button>
           )}
