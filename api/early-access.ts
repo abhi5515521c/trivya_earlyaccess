@@ -11,7 +11,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ success: false, message: 'Missing fields' });
   }
 
-  const connectionString = "postgresql://neondb_owner:npg_ZlC6u1YVGxfi@ep-withered-wildflower-aqcgj954-pooler.c-8.us-east-1.aws.neon.tech/neondb?sslmode=require";
+  const connectionString = "postgresql://neondb_owner:npg_AWOyUR4Xdu2Q@ep-damp-resonance-apdojd47-pooler.c-7.us-east-1.aws.neon.tech/neondb?sslmode=require";
   if (!connectionString) {
     console.error("DATABASE_URL is not set");
     return res.status(500).json({ success: false, message: 'Internal Server Configuration Error' });
