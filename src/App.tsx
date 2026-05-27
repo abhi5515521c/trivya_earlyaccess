@@ -62,20 +62,20 @@ const keywords = [
 
 // Logo images from DoomSphere/logos (served via Vite public/)
 const DOME_LOGOS = [
-  { src: '/logos/Logo (2).svg',                    alt: 'Amazon Logo' },
-  { src: '/logos/Logo (3).svg',                    alt: 'Apple Logo' },
-  { src: '/logos/Logo.svg',                        alt: 'Shopify Logo' },
-  { src: '/logos/id7rUIs_FZ_1779825766781.svg',    alt: "L'Oreal Logo" },
-  { src: '/logos/idFbyDkHrU_1779824763346.svg',    alt: 'Zomato Logo' },
-  { src: '/logos/idLNQNZGf5_logos.svg',            alt: 'Samsung Logo' },
-  { src: '/logos/idPSFKwZPP_logos.svg',            alt: 'ASOS Logo' },
-  { src: '/logos/idRh1T_hmx_logos.svg',            alt: 'Blinkit Logo' },
-  { src: '/logos/idV8p3xfy8_1779824575941.svg',    alt: 'Nykaa Logo' },
-  { src: '/logos/idkH_jg1mm_logos.svg',            alt: 'JBL Logo' },
-  { src: '/logos/idpysrhMtO_logos.svg',            alt: 'boAt Logo' },
-  { src: '/logos/idWOzzLGDr_logos.svg',            alt: 'Logo' },
-  { src: '/logos/idhMpU1D51_logos.png',            alt: 'Brand Logo' },
-  { src: '/logos/idpprML2Di_logos.svg',            alt: 'Brand Logo' },
+  { src: '/logos/Logo (2).svg', alt: 'Amazon Logo' },
+  { src: '/logos/Logo (3).svg', alt: 'Apple Logo' },
+  { src: '/logos/Logo.svg', alt: 'Shopify Logo' },
+  { src: '/logos/id7rUIs_FZ_1779825766781.svg', alt: "L'Oreal Logo" },
+  { src: '/logos/idFbyDkHrU_1779824763346.svg', alt: 'Zomato Logo' },
+  { src: '/logos/idLNQNZGf5_logos.svg', alt: 'Samsung Logo' },
+  { src: '/logos/idPSFKwZPP_logos.svg', alt: 'ASOS Logo' },
+  { src: '/logos/idRh1T_hmx_logos.svg', alt: 'Blinkit Logo' },
+  { src: '/logos/idV8p3xfy8_1779824575941.svg', alt: 'Nykaa Logo' },
+  { src: '/logos/idkH_jg1mm_logos.svg', alt: 'JBL Logo' },
+  { src: '/logos/idpysrhMtO_logos.svg', alt: 'boAt Logo' },
+  { src: '/logos/idWOzzLGDr_logos.svg', alt: 'Logo' },
+  { src: '/logos/idhMpU1D51_logos.png', alt: 'Brand Logo' },
+  { src: '/logos/idpprML2Di_logos.svg', alt: 'Brand Logo' },
 ];
 
 const _DS_DEFAULTS = { maxVerticalRotationDeg: 5, segments: 35, autoRotationSpeed: 0.04 };
@@ -85,7 +85,7 @@ const _ds_wrap = (deg: number) => { const a = (((deg + 180) % 360) + 360) % 360;
 function _dsBuildItems(pool: { src: string; alt: string }[], seg: number) {
   const xCols = Array.from({ length: seg }, (_, i) => -37 + i * 2);
   const evenYs = [-4, -2, 0, 2, 4];
-  const oddYs  = [-3, -1, 1, 3, 5];
+  const oddYs = [-3, -1, 1, 3, 5];
   const coords = xCols.flatMap((x, c) => {
     const ys = c % 2 === 0 ? evenYs : oddYs;
     return ys.map(y => ({ x, y, sizeX: 2, sizeY: 2 }));
@@ -160,7 +160,7 @@ function _DsGalleryItem({ it }: { it: { x: number; y: number; sizeX: number; siz
 }
 
 function DoomSphere() {
-  const rootRef  = useRef<HTMLDivElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
   const sphereRef = useRef<HTMLDivElement>(null);
   const rotY = useRef(0);
 
@@ -400,7 +400,7 @@ function CinematicBackground() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const mouse = mouseRef.current;
-      
+
       // Interpolate mouse coordinates for organic lag
       mouse.x += (mouse.targetX - mouse.x) * 0.1;
       mouse.y += (mouse.targetY - mouse.y) * 0.1;
@@ -519,7 +519,7 @@ function Hero({ heading, onGetEarlyAccess }: HeroProps) {
   return (
     <section className="relative flex-1 flex flex-col items-center justify-center px-6">
       <div className="relative z-20 text-center max-w-5xl mx-auto flex flex-col items-center justify-center w-full gap-12">
-        
+
         {/* Tagline */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
@@ -527,7 +527,7 @@ function Hero({ heading, onGetEarlyAccess }: HeroProps) {
           transition={{ delay: 0.1, duration: 0.4 }}
           className="text-white/80 text-[10px] md:text-[11px] font-medium tracking-[0.15em] mb-4 font-sans"
         >
-          Drop your email to enter the next era of e-commerce.
+          Drop your email & enter the next era of e-commerce.
         </motion.p>
 
         {/* Heading */}
@@ -574,7 +574,7 @@ function App() {
   const [transparencyWish, setTransparencyWish] = useState('');
   const [buttonStatus, setButtonStatus] = useState<'idle' | 'running' | 'done'>('idle');
   const [error, setError] = useState<string | null>(null);
-  
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const labelRef = useRef<HTMLDivElement>(null);
   const mouseRef = useRef({ x: 0, y: 0, targetX: 0, targetY: 0, active: false });
@@ -628,7 +628,7 @@ function App() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       const mouse = mouseRef.current;
-      
+
       // Easing mouse trail movement
       mouse.x += (mouse.targetX - mouse.x) * 0.15;
       mouse.y += (mouse.targetY - mouse.y) * 0.15;
@@ -759,7 +759,7 @@ function App() {
       // Success - let the steps animation play through (7.2s)
       setTimeout(() => {
         setButtonStatus('done');
-        
+
         // Close the modal after showing "Access Confirmed" for 2.5 seconds
         setTimeout(() => {
           setModalOpen(false);
@@ -786,7 +786,7 @@ function App() {
   return (
     <main className="relative bg-black h-screen w-screen flex flex-col overflow-hidden selection:bg-white selection:text-black shrink-0">
       <CinematicBackground />
-      
+
       {/* Interactive Cursor Grid lines canvas */}
       <canvas
         ref={canvasRef}
@@ -915,7 +915,7 @@ function App() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Your name"
-                    className="w-full bg-zinc-900/30 border border-zinc-800/80 rounded-lg py-2.5 px-3.5 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-all text-sm font-sans"
+                    className="w-full bg-zinc-900/30 border border-zinc-800/80 rounded-lg py-2.5 px-3.5 text-white placeholder-zinc-600 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-all text-sm font-sans"
                   />
                 </div>
 
@@ -930,7 +930,7 @@ function App() {
                       disabled={buttonStatus !== 'idle'}
                       value={role}
                       onChange={(e) => setRole(e.target.value)}
-                      className="w-full appearance-none bg-zinc-900/30 border border-zinc-800/80 rounded-lg py-2.5 px-3.5 pr-10 text-zinc-100 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-all text-sm font-sans cursor-pointer bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22rgba(161,161,170,0.5)%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:16px_16px] bg-[right_14px_center] bg-no-repeat"
+                      className="w-full appearance-none bg-zinc-900/30 border border-zinc-800/80 rounded-lg py-2.5 px-3.5 pr-10 text-white focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-all text-sm font-sans cursor-pointer bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22rgba(161,161,170,0.5)%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:16px_16px] bg-[right_14px_center] bg-no-repeat"
                     >
                       <option value="" disabled hidden className="bg-zinc-950 text-zinc-500">Select your role</option>
                       <option value="Student" className="bg-zinc-950 text-zinc-100">Student</option>
@@ -954,7 +954,7 @@ function App() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@example.com"
-                    className="w-full bg-zinc-900/30 border border-zinc-800/80 rounded-lg py-2.5 px-3.5 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-all text-sm font-sans"
+                    className="w-full bg-zinc-900/30 border border-zinc-800/80 rounded-lg py-2.5 px-3.5 text-white placeholder-zinc-600 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-all text-sm font-sans"
                   />
                 </div>
 
@@ -969,7 +969,7 @@ function App() {
                     value={transparencyWish}
                     onChange={(e) => setTransparencyWish(e.target.value)}
                     placeholder="e.g. historical price charts, hidden platform markups..."
-                    className="w-full bg-zinc-900/30 border border-zinc-800/80 rounded-lg py-2.5 px-3.5 text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-all text-sm font-sans h-20 resize-none animate-none"
+                    className="w-full bg-zinc-900/30 border border-zinc-800/80 rounded-lg py-2.5 px-3.5 text-white placeholder-zinc-600 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-all text-sm font-sans h-20 resize-none animate-none"
                   />
                 </div>
 
