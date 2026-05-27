@@ -527,7 +527,7 @@ function Hero({ heading, onGetEarlyAccess }: HeroProps) {
           transition={{ delay: 0.1, duration: 0.4 }}
           className="text-white/80 text-[10px] md:text-[11px] font-medium tracking-[0.15em] mb-4 font-sans"
         >
-          Drop your email & enter the next era of e-commerce.
+          Drop your email &amp; enter the next era of e-commerce.
         </motion.p>
 
         {/* Heading */}
