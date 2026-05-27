@@ -820,7 +820,7 @@ function App() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
             className="fixed inset-0 bg-black/95 z-40 pointer-events-none"
           />
         )}
@@ -836,7 +836,7 @@ function App() {
               initial={{ opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.85 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
               style={{
                 position: 'fixed',
                 inset: 0,
