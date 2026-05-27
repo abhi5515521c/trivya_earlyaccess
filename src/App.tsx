@@ -870,7 +870,7 @@ function App() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
               transition={{ type: "spring", damping: 25, stiffness: 350 }}
-              className="relative w-full max-w-[480px] max-h-[90dvh] overflow-y-auto rounded-2xl bg-zinc-950/85 border border-zinc-800/60 shadow-[0_0_60px_rgba(168,85,247,0.15)] backdrop-blur-2xl p-6 sm:p-8 md:p-10 text-left z-10 flex flex-col gap-6 scrollbar-hide"
+              className="relative w-full max-w-[480px] max-h-[90dvh] overflow-y-auto rounded-2xl bg-zinc-950/85 border border-zinc-800/60 shadow-[0_0_60px_rgba(168,85,247,0.15)] backdrop-blur-2xl p-5 sm:p-8 md:p-10 text-left z-10 flex flex-col gap-5 sm:gap-6 scrollbar-hide"
             >
               {/* Subtle inner purple accent glow */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-[40px] pointer-events-none" />
